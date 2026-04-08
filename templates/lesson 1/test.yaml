@@ -1,0 +1,23 @@
+title: 第一課：打招呼
+tests:
+  - type: multiple_choice
+    question: 你好 的意思是什麼？
+    options:
+      - 你好
+      - Hello
+      - Goodbye
+    answer: Hello
+  - type: fill_blank
+    question: ____ 你的幫助。
+    answer: 謝謝
+  - type: matching
+    question: 配對詞語與意思
+    pairs:
+      - left: 你好
+        right: Hello
+      - left: 謝謝
+        right: Thank you
+  - type: listening
+    question: 聽音檔後輸入你聽到的詞
+    audioUrl: https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav
+    answer: 你好

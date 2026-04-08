@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traditional Chinese Lesson Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+<body>
+  <div class="bg-shape bg-shape-left" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape-right" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand-wrap">
+      <p class="eyebrow">Traditional Chinese Learning</p>
+      <h1>Lesson Studio</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <section aria-labelledby="learnerHeading">
+      <div class="panel hero-panel">
+        <h2 id="learnerHeading">Study by Lesson</h2>
+        <p>Each lesson includes Vocabulary, Grammar, and Tests. Pick one to start learning.</p>
+        <p class="helper-text">Lessons are loaded from <strong>templates/lesson N/grammar.yaml</strong>, <strong>vocabulary.yaml</strong>, and <strong>test.yaml</strong>.</p>
+        <p id="loadStatus" class="helper-text" aria-live="polite">Loading lessons...</p>
+      </div>
+
+      <div class="grid-two">
+        <section class="panel column-panel lesson-panel" aria-label="Lesson list">
+          <div class="section-head">
+            <h3>Lessons</h3>
+            <span id="lessonCountBadge" class="badge">0 lessons</span>
+          </div>
+          <div id="lessonList" class="lesson-list"></div>
+        </section>
+
+        <section class="panel column-panel content-panel" aria-live="polite" aria-label="Lesson detail">
+          <div id="lessonEmpty" class="empty-state">
+            <h3>No lesson selected</h3>
+            <p>Select a lesson card to view vocab, grammar, and tests.</p>
+          </div>
+
+          <article id="lessonDetail" class="lesson-detail hidden">
+            <div class="lesson-detail-head">
+              <h3 id="lessonTitle"></h3>
+              <p id="lessonMeta"></p>
+            </div>
+
+            <div class="tabs" role="tablist" aria-label="Lesson sections">
+              <button class="tab-btn active" data-tab="vocab" role="tab" aria-selected="true">Vocabulary</button>
+              <button class="tab-btn" data-tab="grammar" role="tab" aria-selected="false">Grammar</button>
+              <button class="tab-btn" data-tab="tests" role="tab" aria-selected="false">Tests</button>
+            </div>
+
+            <div id="tabVocab" class="tab-content active" role="tabpanel"></div>
+            <div id="tabPinyin" class="tab-content" role="tabpanel"></div>
+            <div id="tabGrammar" class="tab-content" role="tabpanel"></div>
+            <div id="tabTests" class="tab-content" role="tabpanel"></div>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-brand">
+        <p class="footer-title">Traditional Chinese Lesson Studio</p>
+        <p class="footer-subtitle">Learn vocabulary, grammar, and tests lesson by lesson.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="#learnerHeading">Lessons</a>
+        <a id="lesson0Link" href="#learnerHeading">Lesson 0: Pinyin Pronunciation</a>
+        <a href="#">Vocabulary</a>
+        <a href="#">Grammar</a>
+        <a href="#">Tests</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 Traditional Chinese Lesson Studio. All rights reserved.</p>
+  </footer>
+
+  <div id="wordModal" class="word-modal hidden" role="dialog" aria-modal="true" aria-labelledby="wordModalTitle">
+    <div class="word-modal-backdrop" data-close-modal="true"></div>
+    <article class="word-modal-panel">
+      <button id="wordModalCloseBtn" class="word-modal-close" aria-label="Close">Close</button>
+      <h3 id="wordModalTitle">Word Detail</h3>
+      <div id="wordModalContent" class="word-modal-content"></div>
+      <div class="word-modal-nav">
+        <button id="prevWordBtn" class="word-nav-btn" type="button">Previous</button>
+        <button id="nextWordBtn" class="word-nav-btn" type="button">Next</button>
+      </div>
+    </article>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

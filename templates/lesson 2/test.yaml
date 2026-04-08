@@ -1,0 +1,23 @@
+title: 第二課：日常生活
+tests:
+  - type: multiple_choice
+    question: 「上班」的意思是什麼？
+    options:
+      - Go to work
+      - Go home
+      - Breakfast
+    answer: Go to work
+  - type: fill_blank
+    question: 我晚上六點 ____。
+    answer: 回家
+  - type: matching
+    question: 配對詞語與意思
+    pairs:
+      - left: 早餐
+        right: Breakfast
+      - left: 回家
+        right: Go home
+  - type: listening
+    question: 聽音檔後輸入你聽到的詞
+    audioUrl: https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav
+    answer: 早餐
