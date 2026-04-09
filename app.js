@@ -448,68 +448,92 @@ function renderPinyin() {
     { mark: "Neutral", contour: "ma (light)", note: "Short, light, and unstressed.", sampleText: "吗", sampleLabel: "Neutral tone ma" },
   ];
 
-  const initials = [
-    { symbol: "b", sampleText: "八", sampleLabel: "Initial b" },
-    { symbol: "p", sampleText: "趴", sampleLabel: "Initial p" },
-    { symbol: "m", sampleText: "妈", sampleLabel: "Initial m" },
-    { symbol: "f", sampleText: "发", sampleLabel: "Initial f" },
-    { symbol: "d", sampleText: "大", sampleLabel: "Initial d" },
-    { symbol: "t", sampleText: "他", sampleLabel: "Initial t" },
-    { symbol: "n", sampleText: "你", sampleLabel: "Initial n" },
-    { symbol: "l", sampleText: "了", sampleLabel: "Initial l" },
-    { symbol: "g", sampleText: "哥", sampleLabel: "Initial g" },
-    { symbol: "k", sampleText: "科", sampleLabel: "Initial k" },
-    { symbol: "h", sampleText: "喝", sampleLabel: "Initial h" },
-    { symbol: "j", sampleText: "机", sampleLabel: "Initial j" },
-    { symbol: "q", sampleText: "七", sampleLabel: "Initial q" },
-    { symbol: "x", sampleText: "西", sampleLabel: "Initial x" },
-    { symbol: "zh", sampleText: "知", sampleLabel: "Initial zh" },
-    { symbol: "ch", sampleText: "吃", sampleLabel: "Initial ch" },
-    { symbol: "sh", sampleText: "诗", sampleLabel: "Initial sh" },
-    { symbol: "r", sampleText: "日", sampleLabel: "Initial r" },
-    { symbol: "z", sampleText: "资", sampleLabel: "Initial z" },
-    { symbol: "c", sampleText: "次", sampleLabel: "Initial c" },
-    { symbol: "s", sampleText: "思", sampleLabel: "Initial s" },
-    { symbol: "y", sampleText: "衣", sampleLabel: "Initial y" },
-    { symbol: "w", sampleText: "乌", sampleLabel: "Initial w" },
+  const initialsByLine = [
+    [
+      { symbol: "b", sampleText: "八", sampleLabel: "Initial b" },
+      { symbol: "p", sampleText: "趴", sampleLabel: "Initial p" },
+      { symbol: "m", sampleText: "妈", sampleLabel: "Initial m" },
+      { symbol: "f", sampleText: "发", sampleLabel: "Initial f" },
+    ],
+    [
+      { symbol: "d", sampleText: "大", sampleLabel: "Initial d" },
+      { symbol: "t", sampleText: "他", sampleLabel: "Initial t" },
+      { symbol: "n", sampleText: "你", sampleLabel: "Initial n" },
+      { symbol: "l", sampleText: "了", sampleLabel: "Initial l" },
+    ],
+    [
+      { symbol: "g", sampleText: "哥", sampleLabel: "Initial g" },
+      { symbol: "k", sampleText: "科", sampleLabel: "Initial k" },
+      { symbol: "h", sampleText: "喝", sampleLabel: "Initial h" },
+    ],
+    [
+      { symbol: "j", sampleText: "机", sampleLabel: "Initial j" },
+      { symbol: "q", sampleText: "七", sampleLabel: "Initial q" },
+      { symbol: "x", sampleText: "西", sampleLabel: "Initial x" },
+    ],
+    [
+      { symbol: "zh", sampleText: "知", sampleLabel: "Initial zh" },
+      { symbol: "ch", sampleText: "吃", sampleLabel: "Initial ch" },
+      { symbol: "sh", sampleText: "诗", sampleLabel: "Initial sh" },
+      { symbol: "r", sampleText: "日", sampleLabel: "Initial r" },
+    ],
+    [
+      { symbol: "z", sampleText: "资", sampleLabel: "Initial z" },
+      { symbol: "c", sampleText: "次", sampleLabel: "Initial c" },
+      { symbol: "s", sampleText: "思", sampleLabel: "Initial s" },
+    ],
   ];
 
-  const finals = [
-    { symbol: "a", sampleText: "啊", sampleLabel: "Final a" },
-    { symbol: "o", sampleText: "喔", sampleLabel: "Final o" },
-    { symbol: "e", sampleText: "饿", sampleLabel: "Final e" },
-    { symbol: "i", sampleText: "衣", sampleLabel: "Final i" },
-    { symbol: "u", sampleText: "乌", sampleLabel: "Final u" },
-    { symbol: "u (yu)", sampleText: "鱼", sampleLabel: "Final yu" },
-    { symbol: "ai", sampleText: "爱", sampleLabel: "Final ai" },
-    { symbol: "ei", sampleText: "诶", sampleLabel: "Final ei" },
-    { symbol: "ao", sampleText: "奥", sampleLabel: "Final ao" },
-    { symbol: "ou", sampleText: "欧", sampleLabel: "Final ou" },
-    { symbol: "an", sampleText: "安", sampleLabel: "Final an" },
-    { symbol: "en", sampleText: "恩", sampleLabel: "Final en" },
-    { symbol: "ang", sampleText: "昂", sampleLabel: "Final ang" },
-    { symbol: "eng", sampleText: "鞥", sampleLabel: "Final eng" },
-    { symbol: "ong", sampleText: "翁", sampleLabel: "Final ong" },
-    { symbol: "ia", sampleText: "呀", sampleLabel: "Final ia" },
-    { symbol: "ie", sampleText: "耶", sampleLabel: "Final ie" },
-    { symbol: "iao", sampleText: "腰", sampleLabel: "Final iao" },
-    { symbol: "iu", sampleText: "优", sampleLabel: "Final iu" },
-    { symbol: "ian", sampleText: "烟", sampleLabel: "Final ian" },
-    { symbol: "in", sampleText: "因", sampleLabel: "Final in" },
-    { symbol: "iang", sampleText: "央", sampleLabel: "Final iang" },
-    { symbol: "ing", sampleText: "英", sampleLabel: "Final ing" },
-    { symbol: "iong", sampleText: "拥", sampleLabel: "Final iong" },
-    { symbol: "ua", sampleText: "蛙", sampleLabel: "Final ua" },
-    { symbol: "uo", sampleText: "窝", sampleLabel: "Final uo" },
-    { symbol: "uai", sampleText: "歪", sampleLabel: "Final uai" },
-    { symbol: "ui", sampleText: "威", sampleLabel: "Final ui" },
-    { symbol: "uan", sampleText: "弯", sampleLabel: "Final uan" },
-    { symbol: "un", sampleText: "温", sampleLabel: "Final un" },
-    { symbol: "uang", sampleText: "汪", sampleLabel: "Final uang" },
-    { symbol: "ueng", sampleText: "翁", sampleLabel: "Final ueng" },
-    { symbol: "ve", sampleText: "约", sampleLabel: "Final ve" },
-    { symbol: "van", sampleText: "冤", sampleLabel: "Final van" },
-    { symbol: "vn", sampleText: "晕", sampleLabel: "Final vn" },
+  const finalsByLine = [
+    [
+      { symbol: "a", sampleText: "啊", sampleLabel: "Final a" },
+      { symbol: "o", sampleText: "喔", sampleLabel: "Final o" },
+      { symbol: "e", sampleText: "饿", sampleLabel: "Final e" },
+    ],
+    [
+      { symbol: "i", sampleText: "衣", sampleLabel: "Final i" },
+      { symbol: "u", sampleText: "乌", sampleLabel: "Final u" },
+      { symbol: "u (yu)", sampleText: "鱼", sampleLabel: "Final yu" },
+    ],
+    [
+      { symbol: "ai", sampleText: "爱", sampleLabel: "Final ai" },
+      { symbol: "ei", sampleText: "诶", sampleLabel: "Final ei" },
+      { symbol: "ao", sampleText: "奥", sampleLabel: "Final ao" },
+      { symbol: "ou", sampleText: "欧", sampleLabel: "Final ou" },
+    ],
+    [
+      { symbol: "an", sampleText: "安", sampleLabel: "Final an" },
+      { symbol: "en", sampleText: "恩", sampleLabel: "Final en" },
+      { symbol: "ang", sampleText: "昂", sampleLabel: "Final ang" },
+      { symbol: "eng", sampleText: "鞥", sampleLabel: "Final eng" },
+      { symbol: "ong", sampleText: "翁", sampleLabel: "Final ong" },
+    ],
+    [
+      { symbol: "ia", sampleText: "呀", sampleLabel: "Final ia" },
+      { symbol: "ie", sampleText: "耶", sampleLabel: "Final ie" },
+      { symbol: "iao", sampleText: "腰", sampleLabel: "Final iao" },
+      { symbol: "iu", sampleText: "优", sampleLabel: "Final iu" },
+      { symbol: "ian", sampleText: "烟", sampleLabel: "Final ian" },
+      { symbol: "in", sampleText: "因", sampleLabel: "Final in" },
+      { symbol: "iang", sampleText: "央", sampleLabel: "Final iang" },
+      { symbol: "ing", sampleText: "英", sampleLabel: "Final ing" },
+      { symbol: "iong", sampleText: "拥", sampleLabel: "Final iong" },
+    ],
+    [
+      { symbol: "ua", sampleText: "蛙", sampleLabel: "Final ua" },
+      { symbol: "uo", sampleText: "窝", sampleLabel: "Final uo" },
+      { symbol: "uai", sampleText: "歪", sampleLabel: "Final uai" },
+      { symbol: "ui", sampleText: "威", sampleLabel: "Final ui" },
+      { symbol: "uan", sampleText: "弯", sampleLabel: "Final uan" },
+      { symbol: "un", sampleText: "温", sampleLabel: "Final un" },
+      { symbol: "uang", sampleText: "汪", sampleLabel: "Final uang" },
+      { symbol: "ueng", sampleText: "翁", sampleLabel: "Final ueng" },
+    ],
+    [
+      { symbol: "ve", sampleText: "约", sampleLabel: "Final ve" },
+      { symbol: "van", sampleText: "冤", sampleLabel: "Final van" },
+      { symbol: "vn", sampleText: "晕", sampleLabel: "Final vn" },
+    ],
   ];
 
   const toneRows = tones
@@ -525,18 +549,21 @@ function renderPinyin() {
     )
     .join("");
 
-  const initialPills = initials
-    .map(
-      (item) =>
-        `<button class="pinyin-pill" type="button" data-audio-text="${escapeAttr(item.sampleText)}" data-audio-label="${escapeAttr(item.sampleLabel)}">${escapeHtml(item.symbol)}</button>`,
-    )
-    .join("");
-  const finalPills = finals
-    .map(
-      (item) =>
-        `<button class="pinyin-pill" type="button" data-audio-text="${escapeAttr(item.sampleText)}" data-audio-label="${escapeAttr(item.sampleLabel)}">${escapeHtml(item.symbol)}</button>`,
-    )
-    .join("");
+  const renderPillLines = (rows) =>
+    rows
+      .map((row) => {
+        const rowPills = row
+          .map(
+            (item) =>
+              `<button class="pinyin-pill" type="button" data-audio-text="${escapeAttr(item.sampleText)}" data-audio-label="${escapeAttr(item.sampleLabel)}">${escapeHtml(item.symbol)}</button>`,
+          )
+          .join("");
+        return `<div class="pinyin-pill-line">${rowPills}</div>`;
+      })
+      .join("");
+
+  const initialPills = renderPillLines(initialsByLine);
+  const finalPills = renderPillLines(finalsByLine);
 
   els.tabPinyin.innerHTML = `
     <section class="pinyin-section">
@@ -549,13 +576,13 @@ function renderPinyin() {
     <section class="pinyin-section">
       <h4>2. Initial Sounds (Consonants)</h4>
       <p class="meta-line">Focus on contrast pairs: j/q/x vs zh/ch/sh, and z/c/s.</p>
-      <div class="pinyin-pills">${initialPills}</div>
+      <div class="pinyin-pill-lines">${initialPills}</div>
     </section>
 
     <section class="pinyin-section">
       <h4>3. Final Sounds (Vowels and Endings)</h4>
       <p class="meta-line">Master simple vowels first, then nasal endings like -n and -ng.</p>
-      <div class="pinyin-pills">${finalPills}</div>
+      <div class="pinyin-pill-lines">${finalPills}</div>
     </section>
 
     <section class="pinyin-section">

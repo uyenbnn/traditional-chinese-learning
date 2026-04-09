@@ -625,6 +625,18 @@ textarea {
   gap: 0.4rem;
 }
 
+.pinyin-pill-lines {
+  margin-top: 0.5rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.pinyin-pill-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
 .pinyin-pill {
   display: inline-flex;
   align-items: center;
